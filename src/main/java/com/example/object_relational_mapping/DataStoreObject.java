@@ -6,5 +6,5 @@ package com.example.object_relational_mapping;
  * @author: 苏敏
  * @create: 2022-04-29 14:47
  **/
-public interface DataStoreObject {
+public interface DataStoreObject{
 }
