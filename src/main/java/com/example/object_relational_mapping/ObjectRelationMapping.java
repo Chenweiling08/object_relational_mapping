@@ -8,4 +8,7 @@ package com.example.object_relational_mapping;
  */
 
 public interface ObjectRelationMapping {
+    //映射实体关系
+    public void EntityMappingRelationship
+            (EntityMappingRelationshipTable entityMappingRelationshipTable);
 }
