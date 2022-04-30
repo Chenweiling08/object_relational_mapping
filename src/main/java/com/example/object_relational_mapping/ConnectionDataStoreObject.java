@@ -1,5 +1,9 @@
 package com.example.object_relational_mapping;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
 /**
  * @Author:陈炜灵
  * @Date:2022/4/29 16:38
@@ -8,4 +12,9 @@ package com.example.object_relational_mapping;
  */
 
 public interface ConnectionDataStoreObject {
+    //连接数据库
+    public boolean ConnectDataStoreObjects(ConnectionParameters connectionParameters)
+            throws ClassNotFoundException, SQLException;
+    //创建Statement的方法
+    public Statement statement() throws SQLException;
 }
