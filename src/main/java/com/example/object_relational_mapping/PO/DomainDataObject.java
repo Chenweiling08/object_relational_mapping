@@ -10,6 +10,8 @@ import java.lang.annotation.Target;
  * @Date:2022/5/3 15:16
  * @Version 1.0
  */
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
 public @interface DomainDataObject {
     String value();
 }
