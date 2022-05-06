@@ -5,6 +5,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -18,7 +19,7 @@ public class Stu {
     private EntityManager em;
     @PersistenceUnit
     private EntityManagerFactory factory;
-
+    List<String> TableName = new ArrayList<>();
     @Bean
     public void Query() {
         // sql
@@ -27,13 +28,12 @@ public class Stu {
         Query query = em.createNativeQuery(sql,Student.class);
         // 获取查询结果
         List<Student> students = query.getResultList();
-        query.getFirstResult();
         for(Student b:students){
             System.out.println(b);
         }
 
     }
-    public  void add()  {
+    public  void AddTable() throws ClassNotFoundException {
          em = factory.createEntityManager();
         em.getTransaction().begin();
         String sql="create table IF NOT EXISTS table_1" +
@@ -43,6 +43,13 @@ public class Stu {
         hibernateEntityManager.close();
         em.getTransaction().commit();
         em.close();
+        Class ss=Class.forName("com.example.demo.po.Student");
+        DomainDataObject a=(DomainDataObject)ss.getAnnotation(DomainDataObject.class);
+        String value = a.value();
+        TableName.add(value);
+        for(String Table:TableName){
+            System.out.println(Table);
+        }
 
 
     }

@@ -10,5 +10,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class Statement {
-    public String sql="select * from information_schema.tables where table_schema = 'demo1'";
+    public String sql;
 }

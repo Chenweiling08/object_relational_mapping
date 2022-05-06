@@ -12,8 +12,8 @@ import org.springframework.stereotype.Service;
 @Data
 @Service
 public class ConnectionParameters {
-    private String Url="jdbc:mysql://127.0.0.1:3306/demo1?characterEncoding=utf-8&serverTimezone=UTC";
-    private String User="root";
-    private String Password="cwl123";
-    private String Drive="com.mysql.cj.jdbc.Driver";
+    private String Url;
+    private String User;
+    private String Password;
+    private String Drive;
 }

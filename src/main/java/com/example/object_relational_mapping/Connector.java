@@ -1,6 +1,5 @@
 package com.example.object_relational_mapping;
 
-import com.example.object_relational_mapping.PO.DomainDataObject;
 import lombok.Data;
 import org.springframework.stereotype.Service;
 
