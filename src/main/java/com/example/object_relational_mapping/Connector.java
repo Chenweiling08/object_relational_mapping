@@ -1,6 +1,8 @@
 package com.example.object_relational_mapping;
 
+import com.example.object_relational_mapping.PO.DomainDataObject;
 import lombok.Data;
+import org.springframework.stereotype.Service;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,6 +16,7 @@ import java.sql.Statement;
  * 默认mysql连接器
  */
 @Data
+@Service
 public class Connector implements ConnectionDataStoreObject{
     Connection connection;
     @Override

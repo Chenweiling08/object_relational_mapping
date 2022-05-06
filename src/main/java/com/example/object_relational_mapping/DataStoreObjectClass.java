@@ -1,6 +1,8 @@
 package com.example.object_relational_mapping;
 
 import lombok.Data;
+import org.springframework.context.annotation.Bean;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,6 +14,8 @@ import java.sql.SQLException;
  * mysql数据存储对象
  */
 @Data
+@Service
+
 public class DataStoreObjectClass implements DataStoreObject{
     //连接器
     Connector connector;
@@ -24,7 +28,7 @@ public class DataStoreObjectClass implements DataStoreObject{
     @Override
     //连接数据存储系统
     public void ConnectDataStorageSystem() throws SQLException, ClassNotFoundException {
-        connector.ConnectDataStoreObjects(connectionParameters);
+       /* connector.ConnectDataStoreObjects(connectionParameters);
         //查询结果
         ResultSet rs = connector.statement().executeQuery(sq.sql);
         //输出
@@ -32,5 +36,6 @@ public class DataStoreObjectClass implements DataStoreObject{
             System.out.println(rs.getString("TABLE_NAME"));
         }
     }
-
+*/
+    }
 }

@@ -34,7 +34,7 @@ public class Student {
      * 姓名
      */
     @Column
-    private  String Class;
+    private  String zlass;
 
     /**
      * 年龄
