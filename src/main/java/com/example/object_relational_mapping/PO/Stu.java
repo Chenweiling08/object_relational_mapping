@@ -20,29 +20,8 @@ public class Stu {
     @PersistenceUnit
     private EntityManagerFactory factory;
     List<String> TableName = new ArrayList<>();
-    @Bean
-    public void Query() {
-        // sql
-        String sql = "select * from student";
-        // 执行查询 并把结果专为实体类
-        Query query = em.createNativeQuery(sql,Student.class);
-        // 获取查询结果
-        List<Student> students = query.getResultList();
-        for(Student b:students){
-            System.out.println(b);
-        }
 
-    }
     public  void AddTable() throws ClassNotFoundException {
-         em = factory.createEntityManager();
-        em.getTransaction().begin();
-        String sql="create table IF NOT EXISTS table_1" +
-                "(id INTEGER not NULL, firstName VARCHAR(50),  lastName VARCHAR(50), age INTEGER, PRIMARY KEY ( id ))";
-        HibernateEntityManager hibernateEntityManager=(HibernateEntityManager) em.getDelegate();
-        hibernateEntityManager.createNativeQuery(sql).executeUpdate();
-        hibernateEntityManager.close();
-        em.getTransaction().commit();
-        em.close();
         Class ss=Class.forName("com.example.demo.po.Student");
         DomainDataObject a=(DomainDataObject)ss.getAnnotation(DomainDataObject.class);
         String value = a.value();
@@ -50,7 +29,28 @@ public class Stu {
         for(String Table:TableName){
             System.out.println(Table);
         }
+         em = factory.createEntityManager();
+        em.getTransaction().begin();
+        String sql="create table IF NOT EXISTS '"+value+"' " +
+                "(id INTEGER not NULL, firstName VARCHAR(50),  lastName VARCHAR(50), age INTEGER, PRIMARY KEY ( id ))";
 
+        HibernateEntityManager hibernateEntityManager=(HibernateEntityManager) em.getDelegate();
+        hibernateEntityManager.createNativeQuery(sql).executeUpdate();
+        hibernateEntityManager.close();
+        em.getTransaction().commit();
+        em.close();
+
+    }
+    public void Query() {
+        // sql
+        String sql = "select * from student";
+        // 执行查询 并把结果专为实体类
+        Query query = em.createNativeQuery(sql,Student.class);
+        // 获取查询结果
+        List<Student> students=query.getResultList();
+        for(Student b:students){
+            System.out.println(b);
+        }
 
     }
 

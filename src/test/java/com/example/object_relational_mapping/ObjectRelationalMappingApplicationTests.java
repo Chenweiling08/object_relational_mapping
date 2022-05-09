@@ -1,5 +1,7 @@
 package com.example.object_relational_mapping;
 
+import com.example.object_relational_mapping.PO.Stu;
+import com.example.object_relational_mapping.PO.Student;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,22 +17,10 @@ import java.sql.SQLException;
 @SpringBootTest
 class ObjectRelationalMappingApplicationTests {
     @Autowired
-   private DataStoreObjectClass dataStoreObjectClass;
+    Stu stu;
     @Test
-   public void contextLoads() throws SQLException, ClassNotFoundException {
-
-        //连接数据库
-       dataStoreObjectClass.connector.ConnectDataStoreObjects(dataStoreObjectClass.connectionParameters);
-        //创建数据查询
-        dataStoreObjectClass.connector.statement();
-        //执行sql语句并查询结果
-        ResultSet rs=dataStoreObjectClass.connector.statement().executeQuery(dataStoreObjectClass.sq.sql);
-        //输出
-        while (rs.next()) {
-            System.out.println(rs.getString("TABLE_NAME"));
-        }
-
-
+   public void contextLoads() {
+        stu.Query();
     }
 
 }
