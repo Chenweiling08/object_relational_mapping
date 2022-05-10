@@ -4,18 +4,19 @@ import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import java.sql.Time;
 
 /**
  * @Author:陈炜灵
- * @Date:2022/5/3 15:58
+ * @Date:2022/5/10 14:33
  * @Version 1.0
  */
 @Data
 @Entity
-@Table(name = "Student")
+@Table(name = "course")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-@DomainDataObject("Student")
-public class Student {
+@DomainDataObject("course")
+public class Course {
     /**
      * Id
      */
@@ -28,18 +29,19 @@ public class Student {
      * 姓名
      */
     @Column
-    private  String Name;
+    private  String name;
 
     /**
-     * 姓名
+     * 课程名字
      */
     @Column
-    private  String zlass;
+    private  String course_name;
 
     /**
-     * 年龄
+     * 时间
      */
     @Column
-    private String Age;
+    private Time time;
+
 
 }
