@@ -1,13 +1,8 @@
 package com.example.object_relational_mapping;
 
-import ch.qos.logback.classic.db.names.TableName;
-import com.example.object_relational_mapping.PO.Course;
 import com.example.object_relational_mapping.PO.Demo;
 import com.example.object_relational_mapping.PO.DomainDataObject;
-import com.example.object_relational_mapping.PO.Student;
 import lombok.SneakyThrows;
-import org.hibernate.jpa.HibernateEntityManager;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.*;
@@ -20,11 +15,9 @@ import java.util.List;
  * @Version 1.0
  */
 @Service
-public class Stu implements Demo {
+public class Realizedemo implements Demo {
     @PersistenceContext
     private EntityManager em;
-    @PersistenceUnit
-    private EntityManagerFactory factory;
     List<String> TableName = new ArrayList<>();
 
     @SneakyThrows
@@ -41,13 +34,11 @@ public class Stu implements Demo {
         // sql
         for (int i = 0; i < TableName.size(); i++) {
             String sql = "select * from " + TableName.get(i) + "";
-           if (TableName.get(i) == s.getName()) {
                 // 执行查询 并把结果专为实体类
                 Query query = em.createNativeQuery(sql, s);
                 // 获取查询结果
                 result = query.getResultList();
             }
-       }
         return result;
     }
 }
