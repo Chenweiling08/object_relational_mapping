@@ -29,43 +29,26 @@ public class Stu implements Demo {
 
     @SneakyThrows
     @Override
-    public void addTable(Student student) {
-      Class ss=Class.forName("com.example.object_relational_mapping.PO.Student");
-       Class zz=Class.forName("com.example.object_relational_mapping.PO.Course");
-        DomainDataObject a=(DomainDataObject)ss.getAnnotation(DomainDataObject.class);
-//        DomainDataObject b=(DomainDataObject)zz.getAnnotation(DomainDataObject.class);
+    public Boolean addTable(Class s) {
+        DomainDataObject a=(DomainDataObject)s.getAnnotation(DomainDataObject.class);
         String value = a.value();
-//        String values=b.values();
         TableName.add(value);
-//        TableName.add(values);
-        for(String Table:TableName){
-            System.out.println(Table);
-        }
+        return true;
     }
     @Override
-    public void query() {
+    public Object query(Class s) {
+        List<Object> result = null;
         // sql
         for (int i = 0; i < TableName.size(); i++) {
             String sql = "select * from " + TableName.get(i) + "";
-            if (TableName.get(i).toString()== "Student") {
+           if (TableName.get(i) == s.getName()) {
                 // 执行查询 并把结果专为实体类
-                Query query = em.createNativeQuery(sql, Student.class);
+                Query query = em.createNativeQuery(sql, s);
                 // 获取查询结果
-                List<Student> students = query.getResultList();
-                for (Student a : students) {
-                    System.out.println(a);
-                }
+                result = query.getResultList();
             }
-                if (TableName.get(i) == "Course") {
-                    Query query1 = em.createNativeQuery(sql,Course.class);
-                    // 获取查询结果
-                    List<Course> Course = query1.getResultList();
-                    for (Course b : Course) {
-                        System.out.println(b);
-                    }
-                }
-        }
+       }
+        return result;
     }
-
 }
 
