@@ -31,15 +31,20 @@ public class Student {
     private  String Name;
 
     /**
-     * 姓名
-     */
-    @Column
-    private  String zlass;
-
-    /**
      * 年龄
      */
     @Column
-    private String Age;
+    private String stuAge;
 
+    /**
+     * 班级
+     */
+    @Column
+    private  String stuClass;
+
+    /**
+     * 课程号
+     */
+    @Column
+    private String couNumber;
 }
