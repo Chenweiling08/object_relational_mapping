@@ -13,13 +13,12 @@ import org.springframework.test.context.junit4.SpringRunner;
 class ObjectRelationalMappingApplicationTests {
     @Autowired
     Stu stu;
-    Student student;
 
     @Test
    public void contextLoads() throws ClassNotFoundException {
 
-        stu.addTable(student);
-        stu.query();
+        stu.addTable(Student.class);
+        stu.query(Student.class);
 
     }
 

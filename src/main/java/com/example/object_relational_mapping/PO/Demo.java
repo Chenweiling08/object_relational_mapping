@@ -7,7 +7,7 @@ package com.example.object_relational_mapping.PO;
  */
 
 public interface Demo {
-    public void  addTable(Student student);
-    public void query();
+    public Boolean  addTable(Class s);
+    public Object query(Class z);
 
 }
