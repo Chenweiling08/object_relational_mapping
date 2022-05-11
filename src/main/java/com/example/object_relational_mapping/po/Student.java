@@ -1,4 +1,4 @@
-package com.example.object_relational_mapping.PO;
+package com.example.object_relational_mapping.po;
 
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;

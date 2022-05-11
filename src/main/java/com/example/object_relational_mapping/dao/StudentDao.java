@@ -1,5 +1,6 @@
-package com.example.object_relational_mapping.PO;
+package com.example.object_relational_mapping.dao;
 
+import com.example.object_relational_mapping.po.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**

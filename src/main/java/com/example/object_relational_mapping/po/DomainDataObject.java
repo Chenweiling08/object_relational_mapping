@@ -1,4 +1,4 @@
-package com.example.object_relational_mapping.PO;
+package com.example.object_relational_mapping.po;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

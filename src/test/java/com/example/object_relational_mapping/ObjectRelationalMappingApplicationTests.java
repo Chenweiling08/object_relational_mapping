@@ -1,7 +1,7 @@
 package com.example.object_relational_mapping;
 
-import com.example.object_relational_mapping.PO.Student;
-import com.example.object_relational_mapping.PO.StudentDao;
+import com.example.object_relational_mapping.po.Student;
+import com.example.object_relational_mapping.dao.StudentDao;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
