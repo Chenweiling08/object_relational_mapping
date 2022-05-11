@@ -19,14 +19,11 @@ import java.util.List;
 @Rollback(true)
 class ObjectRelationalMappingApplicationTests {
     @Autowired
-    Stu stu;
-
+    Realizedemo stu;
     @Autowired
     StudentDao studentDao;
-
     @Test
    public void contextLoads() throws ClassNotFoundException {
-
         Student student = new Student();
         student.setName("张三");
         student.setZlass("1");
@@ -40,6 +37,7 @@ class ObjectRelationalMappingApplicationTests {
 
         Student student1 = query.get(0);
         Assert.assertEquals(student,student1);
+
 
     }
 
