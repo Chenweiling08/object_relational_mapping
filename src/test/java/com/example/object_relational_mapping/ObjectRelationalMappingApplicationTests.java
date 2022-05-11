@@ -26,8 +26,9 @@ class ObjectRelationalMappingApplicationTests {
    public void contextLoads() throws ClassNotFoundException {
         Student student = new Student();
         student.setName("张三");
-        student.setZlass("1");
-        student.setAge("111");
+        student.setStuAge("111");
+        student.setStuClass("1");
+        student.setCouNumber("1");
         studentDao.save(student);
 
         Assert.assertTrue(stu.addTable(Student.class));
