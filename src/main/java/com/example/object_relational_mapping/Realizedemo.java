@@ -1,7 +1,7 @@
 package com.example.object_relational_mapping;
 
-import com.example.object_relational_mapping.PO.Demo;
-import com.example.object_relational_mapping.PO.DomainDataObject;
+import com.example.object_relational_mapping.po.Demo;
+import com.example.object_relational_mapping.po.DomainDataObject;
 import lombok.SneakyThrows;
 import org.springframework.stereotype.Service;
 

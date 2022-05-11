@@ -1,4 +1,4 @@
-package com.example.object_relational_mapping.PO;
+package com.example.object_relational_mapping.po;
 
 /**
  * @Author:陈炜灵
