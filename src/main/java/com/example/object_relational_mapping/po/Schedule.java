@@ -8,15 +8,15 @@ import java.sql.Time;
 
 /**
  * @Author:陈炜灵
- * @Date:2022/5/10 14:33
+ * @Date:2022/5/11 10:45
  * @Version 1.0
  */
 @Data
 @Entity
-@Table(name = "course")
+@Table(name = "schedule")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-@DomainDataObject("Course")
-public class Course {
+@DomainDataObject("Schedule")
+public class Schedule {
     /**
      * Id
      */
@@ -32,12 +32,6 @@ public class Course {
     private  String Name;
 
     /**
-     * 班级
-     */
-    @Column
-    private  String stuClass;
-
-    /**
      * 课程号
      */
     @Column
@@ -50,10 +44,20 @@ public class Course {
     private  String couName;
 
     /**
-     * 课程开始时间
+     * 上课时间
      */
     @Column
-    private Time couTime;
+    private Time schTime;
 
+    /**
+     * 上课教师
+     */
+    @Column
+    private String Teacher;
 
+    /**
+     * 上课教室
+     */
+    @Column
+    private String Classroom;
 }
