@@ -59,12 +59,27 @@ class ObjectRelationalMappingApplicationTests {
         courseDao.save(course);
 
         Assert.assertTrue(stu.addTable(Student.class));
+        Assert.assertTrue(stu.addTable(Schedule.class));
+        Assert.assertTrue(stu.addTable(Course.class));
 
         List<Student> query = (List<Student>) stu.query(Student.class);
         Assert.assertEquals(1,query.size());
 
+        List<Schedule> query1 = (List<Schedule>) stu.query(Schedule.class);
+        Assert.assertEquals(1,query1.size());
+
+        List<Course> query2 = (List<Course>) stu.query(Course.class);
+        Assert.assertEquals(1,query2.size());
+
+
         Student student1 = query.get(0);
         Assert.assertEquals(student,student1);
+
+        Schedule schedule1 = query1.get(0);
+        Assert.assertEquals(schedule,schedule1);
+
+        Course course1 = query2.get(0);
+        Assert.assertEquals(course,course1);
 
 
     }
