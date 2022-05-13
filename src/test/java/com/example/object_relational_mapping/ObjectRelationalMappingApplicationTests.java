@@ -29,7 +29,9 @@ class ObjectRelationalMappingApplicationTests {
     Realizedemo stu;
     @Autowired
     StudentDao studentDao;
+    @Autowired
     ScheduleDao scheduleDao;
+    @Autowired
     CourseDao courseDao;
     @Test
    public void contextLoads() throws ClassNotFoundException {
@@ -47,6 +49,7 @@ class ObjectRelationalMappingApplicationTests {
         schedule.setCouName("数学");
         schedule.setTeacher("张三丰");
         schedule.setClassroom("25#603");
+        schedule.setCouNumber("1");
 //        schedule.setSchTime(Time.valueOf("22.1.11 10:24"));
         scheduleDao.save(schedule);
 
