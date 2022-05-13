@@ -33,9 +33,11 @@ public class Realizedemo implements Demo {
         List<Object> result = null;
         // sql
         for (int i = 0; i < TableName.size(); i++) {
-            String sql = "select * from " + TableName.get(i) + "";
+//            String sql = "select * from " + TableName.get(i) + "";
+            StringBuilder sql = new StringBuilder(" select *  ");
+            sql.append(" from "+TableName.get(i)+"");
                 // 执行查询 并把结果专为实体类
-                Query query = em.createNativeQuery(sql, s);
+                Query query = em.createNativeQuery(sql.toString(), s);
                 // 获取查询结果
                 result = query.getResultList();
             }
