@@ -31,16 +31,21 @@ public class Realizedemo implements Demo {
     @Override
     public Object query(Class s) {
         List<Object> result = null;
+        String judge = s.getSimpleName();
         // sql
         for (int i = 0; i < TableName.size(); i++) {
 //            String sql = "select * from " + TableName.get(i) + "";
             StringBuilder sql = new StringBuilder(" select *  ");
-            sql.append(" from "+TableName.get(i)+"");
+            sql.append(" from " + TableName.get(i) + "");
+            if (judge.equals(TableName.get(i))) {
                 // 执行查询 并把结果专为实体类
                 Query query = em.createNativeQuery(sql.toString(), s);
                 // 获取查询结果
                 result = query.getResultList();
+
+
             }
+        }
         return result;
     }
 }
