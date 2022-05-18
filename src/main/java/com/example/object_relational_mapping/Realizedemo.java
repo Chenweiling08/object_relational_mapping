@@ -29,9 +29,11 @@ public class Realizedemo implements Demo {
     public Boolean addTable(Class s) {
         DomainDataObject a=(DomainDataObject)s.getAnnotation(DomainDataObject.class);
         String value = a.value();
+        String where=a.where();
        int num=a.num();
         TableName.add(value);
         TableNum.add(num);
+        TableWhere.add(where);
         return true;
     }
     @Override
@@ -41,7 +43,10 @@ public class Realizedemo implements Demo {
         // sql
         for (int i = 0; i < TableName.size(); i++) {
             StringBuilder sql = new StringBuilder(" select *  ");
-            sql.append(" from " + TableName.get(i) + "");
+            sql.append(" from " + TableName.get(i) +" ");
+            if (TableWhere.get(i).length()!=0) {
+                sql.append("where " + TableWhere.get(i) + "");
+            }
             if (judge.equals(TableName.get(i))||TableNum.get(i)>1) {
                 // 执行查询 并把结果专为实体类
                 Query query = em.createNativeQuery(sql.toString(),s);

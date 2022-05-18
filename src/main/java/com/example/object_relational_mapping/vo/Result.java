@@ -15,7 +15,11 @@ import java.sql.Time;
  */
 @Data
 @Entity
-@DomainDataObject(value = "Schedule,Course",num =2)
+@DomainDataObject(
+        value = "schedule t1,course t2",
+        num =2,
+        where = "t1.cou_number=t2.cou_number "
+)
 public class Result {
     @Id
     private String schId;

@@ -15,7 +15,7 @@ import java.sql.Time;
 @Entity
 @Table(name = "schedule")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-@DomainDataObject(value = "Schedule",num = 1)
+@DomainDataObject(value = "Schedule",num = 1,where = "")
 public class Schedule {
     /**
      * Id
