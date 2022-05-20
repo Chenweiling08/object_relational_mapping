@@ -14,4 +14,7 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface DomainDataObject {
     String value();
+   int num();
+   String where();
+
 }
