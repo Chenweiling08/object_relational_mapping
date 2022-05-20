@@ -6,6 +6,7 @@ import com.example.object_relational_mapping.po.Course;
 import com.example.object_relational_mapping.po.Schedule;
 import com.example.object_relational_mapping.po.Student;
 import com.example.object_relational_mapping.dao.StudentDao;
+import com.example.object_relational_mapping.vo.Result;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -19,6 +20,7 @@ import java.security.Timestamp;
 import java.sql.Time;
 import java.util.Date;
 import java.util.List;
+import java.util.ResourceBundle;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -42,16 +44,10 @@ class ObjectRelationalMappingApplicationTests {
         student.setCouNumber("1");
             studentDao.save(student);
 
-
-
         Assert.assertTrue(stu.addTable(Student.class));
-
 
         List<Student> query = (List<Student>) stu.query(Student.class);
         Assert.assertEquals(1,query.size());
-
-
-
 
         Student student1 = query.get(0);
         Assert.assertEquals(student,student1);
@@ -65,8 +61,6 @@ class ObjectRelationalMappingApplicationTests {
         Schedule schedule=new Schedule();
         Date t = new Date();
         Time time = new java.sql.Time(t.getTime());
-        schedule.setName("张三");
-        schedule.setCouName("数学");
         schedule.setTeacher("张三丰");
         schedule.setClassroom("25#603");
         schedule.setCouNumber("1");
@@ -74,7 +68,6 @@ class ObjectRelationalMappingApplicationTests {
         scheduleDao.save(schedule);
 
         Course course=new Course();
-        course.setName("张三");
         Date t1 = new Date();
         Time time1 = new java.sql.Time(t1.getTime());
         course.setStuClass("25#306");
@@ -83,20 +76,13 @@ class ObjectRelationalMappingApplicationTests {
         course.setCouTime(time1);
         courseDao.save(course);
 
-        Assert.assertTrue(stu.addTable(Schedule.class));
-        Assert.assertTrue(stu.addTable(Course.class));
+        Assert.assertTrue(stu.addTable(Result.class));
 
-        List<Schedule> query1 = (List<Schedule>) stu.query(Schedule.class);
+        List<Result> query1 = (List<Result>) stu.query(Result.class);
         Assert.assertEquals(1,query1.size());
 
-        List<Course> query2 = (List<Course>) stu.query(Course.class);
-        Assert.assertEquals(1,query2.size());
-
-        Schedule schedule1 = query1.get(0);
-        Assert.assertEquals(schedule,schedule1);
-
-        Course course1 = query2.get(0);
-        Assert.assertEquals(course,course1);
+       Result result = query1.get(0);
+        Assert.assertEquals(result,result);
     }
 
 

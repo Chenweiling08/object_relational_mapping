@@ -14,7 +14,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "Student")
 @GenericGenerator(name = "jpa-uuid", strategy = "uuid")
-@DomainDataObject("Student")
+@DomainDataObject(value = "Student",num =1,where ="")
 public class Student {
     /**
      * Id
@@ -22,7 +22,7 @@ public class Student {
     @Id
     @GeneratedValue(generator = "jpa-uuid")
     @Column(length = 32)
-    private String Id;
+    private String stuId;
 
     /**
      * 姓名
