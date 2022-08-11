@@ -54,7 +54,6 @@ public class Realizedemo implements Demo {
                 result = query.getResultList();
             }
         }
-
         return result;
     }
 }
