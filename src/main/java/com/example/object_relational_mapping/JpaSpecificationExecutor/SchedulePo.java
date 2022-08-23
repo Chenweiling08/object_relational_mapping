@@ -40,4 +40,5 @@ public class SchedulePo {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cous_id")
     private CoursePo coursePo;
+    //111
 }
